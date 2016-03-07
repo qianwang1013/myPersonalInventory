@@ -1,11 +1,10 @@
 'use strict'
-var express = require('express');
-var app = express(); 
+var express = require('express'),
+	app = express(),
+	http = require('http'),
+	fs = require('fs');
 
-app.get('/', function(req, res){
-	res.send('Hello World');
-});
-app.use('/index', express.static(__dirname + '/public/index.html'));
+app.use('/', express.static(__dirname + '/public'));
 
 app.listen(5000, function(){
 	console.log('Example listening on port 5000');
